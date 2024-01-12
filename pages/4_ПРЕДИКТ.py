@@ -43,7 +43,7 @@ if df is not None:
         X_input = np.array(list_values).reshape(1, -1)
 
         st.title("Тип модели обучения")
-        model_type = st.selectbox("Выберите тип", ['Knn', 'Kmeans', 'Boosting', 'Bagging', 'Stacking', 'MLP'])
+        model_type = st.selectbox("Выберите тип", ['Knn', 'Decision_tree', 'Boosting', 'Bagging', 'Stacking', 'Gradient_boosting', 'MLP'])
 
         button_clicked = st.button("Предсказать")
         if button_clicked and model_type is not None:
