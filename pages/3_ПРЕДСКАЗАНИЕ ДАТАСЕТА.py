@@ -31,7 +31,7 @@ def main():
         feature = st.selectbox("Выберите предсказываемый признак", df.columns)
 
         st.title("Тип модели обучения")
-        model_type = st.selectbox("Выберите тип", ['Knn', 'Decision_tree', 'Boosting', 'Bagging', 'Stacking', 'Gradient_boosting', 'MLP'])
+        model_type = st.selectbox("Выберите тип", ['Knn', 'decisiontree', 'Boosting', 'Bagging', 'Stacking', 'gradientboosting', 'MLP'])
 
         button_clicked = st.button("Обработка данных и предсказание")
         if button_clicked:
