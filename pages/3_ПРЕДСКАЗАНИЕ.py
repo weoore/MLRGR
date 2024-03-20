@@ -45,12 +45,10 @@ def main():
 
             y = df[feature]
             X = df.drop([feature], axis=1)
-            X, _, y, _ = train_test_split(X, y, test_size=0.9, random_state=42)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)  # Исправлено
 
             nm = NearMiss()
-            X, y = nm.fit_resample(X, y.ravel())
-
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+            X, y = nm.fit_resample(X_train, y_train.ravel())  # Исправлено
 
             st.success("Обработка завершена")
 
@@ -58,7 +56,8 @@ def main():
 
             if model_type != "Выберите модель":
                 model_path = f'models/{model_type.lower()}.pkl'
-                load_and_predict(model_path, X_test)
+                load_and_predict(model_path, X_test)  # Исправлено
 
 if __name__ == "__main__":
     main()
+
