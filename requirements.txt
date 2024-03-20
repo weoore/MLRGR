@@ -7,3 +7,4 @@ imblearn
 cvxopt
 tensorflow == 2.15.0
 scipy
+streamlit
