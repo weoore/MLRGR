@@ -7,17 +7,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from imblearn.under_sampling import NearMiss
 
-def load_and_predict(model_path, X_test):
+def load_and_predict(model_path, X):
     with open(model_path, 'rb') as file:
         model = pickle.load(file)
-    y_pred = model.predict(X_test)
-    y_pred = np.asarray(y_pred)
-    with io.BytesIO() as buffer:
-        np.savetxt(buffer, y_pred, delimiter=",")
-        st.download_button(label='Скачать предсказания',
-                           data=buffer,
-                           file_name='predictions.csv',
-                           mime='text/csv')
+    return model.predict(X)
+
+def display_prediction_result(prediction):
+    if prediction == 0:
+        st.success("Транзакция вероятно не является мошеннической")
+    else:
+        st.success("Транзакция вероятно мошенническая")
 
 def main():
     data = st.file_uploader("Выберите файл датасета", type=["csv"])
@@ -58,7 +57,8 @@ def main():
 
             if model_type != "Выберите модель":
                 model_path = f'models/{model_type.lower()}.pkl'
-                load_and_predict(model_path, X_test)
+                prediction = load_and_predict(model_path, X_test)
+                display_prediction_result(prediction)
 
 if __name__ == "__main__":
     main()
