@@ -82,6 +82,6 @@ if button:
         stacking = pickle.load(model)
         st.header("Stacking:")
         st.write(bool(stacking.predict(data)[0]))
-    tf = tf.keras.models.load_model('./models/tf.h5')
+    tf = load_model('./models/modelneuro.keras')
     st.header("Tensorflow:")
     st.write(bool(tf.predict(data)[0]))
