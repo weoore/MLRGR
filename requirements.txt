@@ -2,9 +2,9 @@ numpy
 seaborn
 matplotlib
 pandas
-scikit-learn == 1.2.2
+scikit-learn
 imblearn
 cvxopt
-tensorflow == 2.15.0
+tensorflow
 scipy
 streamlit
