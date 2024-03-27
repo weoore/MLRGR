@@ -10,8 +10,6 @@ st.title('Информация о датасетe')
 st.header('Датасет для классификации - "Мошенничество с картами"')
 st.markdown('---')
 st.dataframe(df)
-st.subheader('Unnamed: 0')
-st.markdown('Столбец с нумерацией')
 
 st.subheader('distance_from_home')
 st.markdown('расстояние от дома')
