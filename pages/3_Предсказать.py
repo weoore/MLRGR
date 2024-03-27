@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import tensorflow as tf
 import pickle
+from tensorflow.keras.models import load_model
 
 clear_data = pd.DataFrame({'distance_from_home': [0],
                            'distance_from_last_transaction': [0],
