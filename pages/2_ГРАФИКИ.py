@@ -5,6 +5,18 @@ import numpy as np
 
 data= pd.read_csv("card_tr.csv")
 
+st.title("Мошенничество с кредитными картами")
+st.header("Тепловая карта")
+plt.figure(figsize=(7, 5))
+sns.heatmap(data.corr().round(3), annot=True, cmap='coolwarm')
+st.pyplot(plt)
+
+st.header("Круговая диаграмма")
+plt.figure(figsize=(5, 5))
+data['fraud'].value_counts().plot.pie(autopct='%1.1f%%')
+plt.title('Мошенничество')
+st.pyplot(plt)
+
 st.title('Визуализация датасета')
 
 st.header('Датасет для классификации - "Мошенничество с картами"')
